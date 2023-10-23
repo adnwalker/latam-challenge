@@ -106,6 +106,7 @@ class DelayModel:
             pd.get_dummies(data['MES'], prefix='MES')
         ], axis=1)
 
+        #try:
         top_10_features = [
             "OPERA_Latin American Wings", 
             "MES_7",
@@ -125,6 +126,13 @@ class DelayModel:
             return filtered_features, data[[target_column]]
         else:
             return filtered_features
+            
+        # for api preprocessing step 
+        # except Exception as e:
+        #     if target_column:
+        #         return features, data[[target_column]]
+        #     else:
+        #         return features
 
     def fit(
         self,
