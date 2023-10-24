@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-latam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: latam-application
+  template:
+    metadata:
+      labels:
+        app: latam-application
+    spec:
+      containers:
+        - name: latam-application
+          image: gcr.io/latam-ml/latam-application:latest
+          ports:
+            - containerPort: 8000

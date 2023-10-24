@@ -23,6 +23,10 @@ EXPECTED_FEATURES = [
     "OPERA_Copa Air"
 ]
 
+@app.get("/", response_model=dict)
+async def read_root():
+    return {"message": "Welcome to the FastAPI LATAM app!"}
+
 @app.get("/health", status_code=200)
 async def get_health() -> dict:
     return {

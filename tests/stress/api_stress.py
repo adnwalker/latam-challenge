@@ -4,31 +4,26 @@ class StressUser(HttpUser):
     
     @task
     def predict_argentinas(self):
-        self.client.post(
-            "/predict", 
-            json={
-                "flights": [
-                    {
-                        "OPERA": "Aerolineas Argentinas", 
-                        "TIPOVUELO": "N", 
-                        "MES": 3
-                    }
-                ]
-            }
-        )
-
+        data = {
+            "flights": [
+                {
+                    "OPERA": "Latin American Wings", 
+                    "TIPOVUELO": "I", 
+                    "MES": 12
+                }
+            ]
+        }
+        self.client.post("/predict", json=data["flights"])
 
     @task
     def predict_latam(self):
-        self.client.post(
-            "/predict", 
-            json={
-                "flights": [
-                    {
-                        "OPERA": "Grupo LATAM", 
-                        "TIPOVUELO": "N", 
-                        "MES": 3
-                    }
-                ]
-            }
-        )
+        data = {
+            "flights": [
+                {
+                    "OPERA": "Grupo LATAM", 
+                    "TIPOVUELO": "I", 
+                    "MES": 12
+                }
+            ]
+        }
+        self.client.post("/predict", json=data["flights"])
