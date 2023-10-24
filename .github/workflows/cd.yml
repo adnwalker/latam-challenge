@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud CLI
+      - name: Set up Google Cloud CLI.
         uses: google-github-actions/setup-gcloud@v0 #GoogleCloudPlatform/github-actions/setup-gcloud@v0
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
