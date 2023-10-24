@@ -20,6 +20,15 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
 
+      - name: Update gcloud SDK
+        run: gcloud components update
+
+      - name: Install gke-gcloud-auth-plugin
+        run: gcloud components install gke-gcloud-auth-plugin
+
+      - name: Install Google Cloud SDK components
+        run: gcloud components install kubectl
+
       - name: Configure kubectl
         run: |
           gcloud container clusters get-credentials cluster-latam --zone us-central1-a --project ${{ secrets.GCP_PROJECT_ID }}
